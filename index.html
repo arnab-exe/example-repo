@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grid + Flexbox Layout</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "nav main sidebar"
+        "footer footer footer";
+      grid-template-columns: 1fr 2fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    header {
+      grid-area: header;
+      background: #333;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+    }
+
+    nav {
+      grid-area: nav;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    nav ul li {
+      background: #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    main {
+      grid-area: main;
+      background: #e2e2e2;
+      padding: 20px;
+    }
+
+    .sidebar {
+      grid-area: sidebar;
+      background: #fefefe;
+      padding: 20px;
+      border-left: 1px solid #ccc;
+    }
+
+    footer {
+      grid-area: footer;
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+
+    /* ✅ Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        grid-template-areas:
+          "header"
+          "nav"
+          "main"
+          "sidebar"
+          "footer";
+        grid-template-columns: 1fr;
+      }
+
+      nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      nav ul li {
+        flex: 1 1 40%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>My Website</h1>
+      <div>🔍 🔔 👤</div>
+    </header>
+
+    <nav>
+      <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Services</li>
+        <li>Contact</li>
+      </ul>
+    </nav>
+
+    <main>
+      <h2>Main Content</h2>
+      <p>This is the main area of the website where the primary content goes.</p>
+    </main>
+
+    <aside class="sidebar">
+      <h3>Sidebar</h3>
+      <p>Additional content or widgets here.</p>
+    </aside>
+
+    <footer>
+      <p>&copy; 2025 My Website</p>
+    </footer>
+  </div>
+
+</body>
+</html>
